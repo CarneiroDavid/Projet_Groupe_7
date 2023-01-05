@@ -11,8 +11,8 @@ const fetchUser = async (id) =>  {
   }
 }
 
-const UserDetailPage = async (id) => {
-  const res = await fetchUser(id)
+const UserDetailPage = async (kwargs) => {
+  const res = await fetchUser(kwargs.id)
   console.log(res);
   return CardUser(res)
 }

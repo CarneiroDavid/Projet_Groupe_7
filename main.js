@@ -7,7 +7,7 @@ import TabManager from "./src/utils/TabManager";
 const rootElement = document.querySelector('#app')
 
 const tabManager = new TabManager(rootElement, {
-  page1: {
+  character: {
     component: UserDetailPage,
   },
   characters: {
@@ -17,6 +17,6 @@ const tabManager = new TabManager(rootElement, {
 
 tabManager.openTabById('characters')
 
-document.querySelectorAll('#btn-character').addEventListener('click', () => {
+document.querySelector('#btn-characters').addEventListener('click', () => {
     tabManager.openTabById('characters')
   });
