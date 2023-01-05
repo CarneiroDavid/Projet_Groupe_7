@@ -1,6 +1,10 @@
-export default function Card({ src, text }) {
+export default function Card({ name,src, gender,id }) {
   return {
     tagName: 'div',
+    
+    attributes:{
+      'data-id': id,
+    },
     children: [
       {
         tagName: 'img',
@@ -9,8 +13,12 @@ export default function Card({ src, text }) {
         }
       },
       {
+        tagName: 'h3',
+        text:name
+      },
+      {
         tagName: 'p',
-        text
+        text:gender
       },
     ]
   }

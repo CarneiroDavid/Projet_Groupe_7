@@ -1,24 +1,22 @@
-import './style.css'
+import './style.css';
 import Card from "./src/components/Card";
 import UserPage from "./src/pages/UserPage";
+import UserDetailPage from "./src/pages/DetailUser";
 import TabManager from "./src/utils/TabManager";
 
 const rootElement = document.querySelector('#app')
 
 const tabManager = new TabManager(rootElement, {
   page1: {
-    component: () => document.createElement('div'),
-    params: [{ src: 'http://placekitten.com/200/200', text: 'A cat' }]
+    component: UserDetailPage,
   },
-  user: {
+  characters: {
     component: UserPage,
   }
 })
 
-tabManager.openTabById('user')
+tabManager.openTabById('characters')
 
-document.querySelectorAll('[data-tabId]').forEach(element => {
-  element.addEventListener('click', () => {
-    tabManager.openTabById(element.getAttribute('data-tabId'))
-  })
-})
+document.querySelectorAll('#btn-character').addEventListener('click', () => {
+    tabManager.openTabById('characters')
+  });
