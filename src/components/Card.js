@@ -1,6 +1,7 @@
-export default function Card({ name,src, gender,id }) {
+export default function Card({ name,src, gender,id, dimension }) {
   return {
     tagName: 'div',
+    classList: ['card'],
     
     attributes:{
       'data-id': id,
@@ -8,8 +9,9 @@ export default function Card({ name,src, gender,id }) {
     children: [
       {
         tagName: 'img',
+        classList: ['card-img'],
         attributes: {
-          src
+          src : src ? src : ''
         }
       },
       {

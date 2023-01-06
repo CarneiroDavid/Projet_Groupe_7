@@ -15,7 +15,6 @@ const fetchUsers = async (page=1) =>  {
 
 const UserPage = async (kwargs) => {
   const res = await fetchUsers(kwargs.page);
-  console.log(res);
   const cardList = CardList(res.results)
 
   for(let i of cardList.children){
@@ -23,7 +22,7 @@ const UserPage = async (kwargs) => {
       tabManager.openTabById('character',{id:i.getAttribute('data-id')});
     })
   }
-  cardList.appendChild(Pagination(kwargs.page));
+  cardList.appendChild(Pagination(kwargs.page, 'characters'));
   return cardList
 }
 

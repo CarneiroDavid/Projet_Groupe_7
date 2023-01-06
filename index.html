@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <header>
-      <button id="btn-characters">List of Characters</button>
-      <form>
-        <input id="searchCharacter" type="text"/>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+<header>
+    <nav class="index-navbar">
+      <ul>
+        <li><button id="btn-characters">List of Characters</button></li>
+        <li><button id="ville" type="button">Villes</button></li>
+      </ul>
+      <div>
+        <label>Recherche par nom : </label>
+        <input id="searchCharacter" type="text" />
         <button id="inputRecherche" type="button">Rechercher</button>
-      </form>
-    </header>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+      </div>
+
+    </nav>
+  </header>
+<body>
+  
+  <div id="app"></div>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>

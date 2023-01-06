@@ -1,14 +1,73 @@
+body{
+  margin:0
+}
+#app {
+  max-width: 80%;
+  margin: auto;
+}
+
 .users {
-  display: grid;
-  max-width: 780px;
+  display: flex;
   margin: 0 auto;
+  justify-content: center;
+  width: 100%;
   grid-template-columns: repeat(3, 1fr);
+  flex-direction: row;
+  flex-wrap: wrap
 }
 
 .users div {
   display: flex;
+  background-color: white;
   flex-direction: column;
   justify-content: center;
-  margin: 8px;
   text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 8px;
+  width: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.card:hover {
+  transform: scale(1.1);
+  transition-duration: 1.2s;
+  cursor: pointer;
+}
+
+.card-img {
+  border-radius: 5px;
+}
+
+.index-navbar {
+  background-color: rgb(235, 230, 230);
+  height: 70px;
+  text-align: center;
+  margin: auto;
+  width: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  float: left;
+  /* background-color: #333; */
+}
+
+li {
+  float: left;
+}
+
+/* li button {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+} 
+li a:hover {
+  background-color: #111;
+} */

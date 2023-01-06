@@ -1,6 +1,8 @@
 import createElement from "../dom/createElement"
 
-export default function Card({ name,image, gender,id }) {
+export default function Card({ name,image, gender,id, dimension, residents }) {
+  console.log(residents)
+
     return createElement({
       tagName: 'div',
       
@@ -11,17 +13,31 @@ export default function Card({ name,image, gender,id }) {
         {
           tagName: 'img',
           attributes: {
-            src: image
+            src: image ? image : ''
           }
         },
         {
-          tagName: 'h3',
-          text:name
+          tagName: 'h2',
+          text: gender ? 'Nom du personnage : '+ name : 'Nom de la location : ' + name  
         },
         {
           tagName: 'p',
-          text:gender
+          text:gender ? 'Genre : ' + gender : 'Dimension : ' + dimension
         },
+        {
+          tagName:'ul',
+          children: residents.map((element) => {
+            return {
+              tagName: 'li',
+              attributes: {
+                'data-id': element.id,
+                
+              }
+            }
+          })
+        }
       ]
     })
   }
+
+  
