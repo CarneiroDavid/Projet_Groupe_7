@@ -1,5 +1,5 @@
 import createElement from "../dom/createElement"
-
+let hundleInfScroll;
 class TabManager {
   constructor(rootElement, componentMapping) {
     this.rootElement = rootElement
@@ -19,13 +19,11 @@ class TabManager {
   async loadMorePage({callback,HtmlElement,cardType,args={}}) {
     const endOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
     if (endOfPage) {
-      console.log(args.page);
       let newResult = await callback(args);
-      console.log(newResult);
       newResult.results.forEach(element => {
         const card = createElement(cardType(element));
         card.addEventListener("click", () => {
-          tabManager.openTabById('character',{id:card.getAttribute('data-id')});
+          this.openTabById('character',{id:card.getAttribute('data-id')});
           window.removeEventListener("scroll", hundleInfScroll);
         });
         HtmlElement.appendChild(card, 'characters');
