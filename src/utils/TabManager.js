@@ -1,3 +1,4 @@
+
 class TabManager {
   constructor(rootElement, componentMapping) {
     this.rootElement = rootElement
@@ -12,14 +13,6 @@ class TabManager {
     const { component, params = [kwargs] } = this.componentMapping[id]
     Component = await component(...params)
     this.rootElement.innerHTML = ''
-    console.log(Component.children);
-    if(id === 'characters'){
-      for(let i of Component.children){
-        i.addEventListener('click', () => {
-          this.openTabById('character',{id:i.getAttribute('data-id')});
-        })
-      }
-    }
     this.rootElement.appendChild(Component)
   }
 }
