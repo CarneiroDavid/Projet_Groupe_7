@@ -2,6 +2,22 @@ import createElement from "../dom/createElement"
 
 export default function Card({ name,image, gender,id, dimension, residents }) {
   console.log(residents)
+  let variable;
+  if(residents)
+  {
+    variable = residents.map((element) => {
+      return {
+        tagName: 'li',
+        attributes: {
+          'data-id': element.id,
+          
+        }
+      }
+    }) 
+  }
+  else{
+    variable =[]
+  }
 
     return createElement({
       tagName: 'div',
@@ -26,15 +42,8 @@ export default function Card({ name,image, gender,id, dimension, residents }) {
         },
         {
           tagName:'ul',
-          // children: residents.map((element) => {
-            // return {
-            //   tagName: 'li',
-            //   attributes: {
-            //     'data-id': element.id,
-                
-            //   }
-            // }
-          // })
+          
+          children: variable 
         }
       ]
     })
