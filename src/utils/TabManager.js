@@ -9,10 +9,18 @@ class TabManager {
     if (!(id in this.componentMapping)) {
       throw new Error('This id is not valid')
     }
-    let Component;
+    
     const { component, params = [kwargs] } = this.componentMapping[id]
-    Component = await component(...params)
+    let Component = await component(...params)
     this.rootElement.innerHTML = ''
+    this.rootElement.appendChild(Component)
+  }
+  async expendResult(id,kwargs= {}) {
+    if (!(id in this.componentMapping)) {
+      throw new Error('This id is not valid')
+    }
+    const { component, params = [kwargs] } = this.componentMapping[id]
+    let Component = await component(...params)
     this.rootElement.appendChild(Component)
   }
 }
