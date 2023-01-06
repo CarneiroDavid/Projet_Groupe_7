@@ -1,3 +1,4 @@
+import createElement from "../dom/createElement"
 
 class TabManager {
   constructor(rootElement, componentMapping) {
@@ -15,13 +16,21 @@ class TabManager {
     this.rootElement.innerHTML = ''
     this.rootElement.appendChild(Component)
   }
-  async expendResult(id,kwargs= {}) {
-    if (!(id in this.componentMapping)) {
-      throw new Error('This id is not valid')
+  async loadMorePage({callback,HtmlElement,cardType,args={}}) {
+    const endOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+    if (endOfPage) {
+      console.log(args.page);
+      let newResult = await callback(args);
+      console.log(newResult);
+      newResult.results.forEach(element => {
+        const card = createElement(cardType(element));
+        card.addEventListener("click", () => {
+          tabManager.openTabById('character',{id:card.getAttribute('data-id')});
+          window.removeEventListener("scroll", hundleInfScroll);
+        });
+        HtmlElement.appendChild(card, 'characters');
+      });
     }
-    const { component, params = [kwargs] } = this.componentMapping[id]
-    let Component = await component(...params)
-    this.rootElement.appendChild(Component)
   }
 }
 

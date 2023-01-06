@@ -1,4 +1,4 @@
-export default function Card({ name,src, gender,id, dimension }) {
+export default function Card({ name,src, gender,id, image,dimension }) {
   return {
     tagName: 'div',
     classList: ['card'],
@@ -11,7 +11,7 @@ export default function Card({ name,src, gender,id, dimension }) {
         tagName: 'img',
         classList: ['card-img'],
         attributes: {
-          src : src ? src : ''
+          src : src ? src : image
         }
       },
       {

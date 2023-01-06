@@ -26,15 +26,15 @@ export default function Card({ name,image, gender,id, dimension, residents }) {
         },
         {
           tagName:'ul',
-          children: residents.map((element) => {
-            return {
-              tagName: 'li',
-              attributes: {
-                'data-id': element.id,
+          // children: residents.map((element) => {
+            // return {
+            //   tagName: 'li',
+            //   attributes: {
+            //     'data-id': element.id,
                 
-              }
-            }
-          })
+            //   }
+            // }
+          // })
         }
       ]
     })
