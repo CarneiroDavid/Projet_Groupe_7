@@ -10,8 +10,8 @@ const fetchCharacterByString = async ({name,page}) =>  {
         },
         method:'POST',
         body: JSON.stringify({
-          query:`query {
-                  characters(page:${page},filter:{name:"${name}"}){
+          query:`query FoundCharacter($page: Int,$name: String){
+                  characters(page:$page,filter:{name:$name}){
                     info{
                       count,
                       pages,
@@ -24,6 +24,8 @@ const fetchCharacterByString = async ({name,page}) =>  {
                   }
                 }`,
           variables:{
+            "page":page,
+              "name":name,
           }
         })
     })
